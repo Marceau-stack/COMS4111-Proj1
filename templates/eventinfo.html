@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Event Information</title>
+</head>
+
+<body>
+  Here are the details of event category!
+  <div>
+    {% for n in category_objs %}
+    <div>Category: {{n.category_name}}, Price Level: {{n.price_level}}, Price Interval: {{n.price_interval}}, Maximum Price:
+      {{n.maximum_price}}</div>
+    {% endfor %}
+  </div>
+
+  <div>Here are the cast of events!</div>
+  {% for n in casts_objs %}
+  <div>Name: {{n.name}}, Role: {{n.role}}, {{n.salary}}, <a href="/sponsors/{{n.cid}}">go to {{n.name}}'s sponsors</a></div>
+  {% endfor %}
+
+</body>
+
+</html>

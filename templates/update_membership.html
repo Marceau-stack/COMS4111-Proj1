@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Update Membership</title>
+</head>
+<body>
+  <form method="POST" action="/update_membership/{{user_id}}">
+    <label for="mid">Select and update your membership</label>
+    <select name="mid" id="mid">
+      {% for m in memberships_objs %}
+      <option value="{{m.mid}}">{{m.member_level}}</option>
+      {% endfor %}
+    </select>
+    <input type="submit" value="Submit"><br>
+  </form>
+  
+  <table>
+    <tr>
+      <th>Member Level</th>
+      <th>Reward Ratio</th>
+      <th>Pay Amount</th>
+    </tr>
+    {% for m in memberships_objs %}
+    <tr>
+      <td>{{m.member_level}}</td>
+      <td>{{m.rewards}}</td>
+      <td>{{m.upay_amount}}</td>
+    </tr>
+    {% endfor %}
+</body>
+</html>

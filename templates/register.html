@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Register an Event</title>
+</head>
+<body>
+    <form method="POST" action="/register/{{user_id}}">
+      <label for="eid">Select an event to register</label>
+      <select name="eid" id="eid">
+        {% for n in events %}
+        <option value="{{n.eid}}">{{n.name}}</option>
+        {% endfor %}
+      </select>
+
+      <label for="name">Participant Name:</label>
+      <input type="text" name="name" autocomplete="off" autofocus required>
+
+      <label for="seat_zone">Seat Zone:</label>
+      <input type="text" name="seat_zone" autocomplete="off" autofocus required>
+
+      <label for="seat_number">Seat Number:</label>
+      <input type="text" name="seat_number" autocomplete="off" autofocus required>
+
+      <input type="submit" value="SUBMIT">
+    </form>
+
+    <div>Available Events</div>
+    {% for n in events %}
+    <div>
+      <a href="/eventinfo/{{n.eid}}">go to {{n.name}} detailed information </a>
+      place: {{n.place}},time: {{n.time}},date: {{n.date}}, limitted attendance: {{n.limitted_attendance}}
+    </div>
+    {% endfor %}
+</body>
+</html>

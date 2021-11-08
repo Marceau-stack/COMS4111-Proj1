@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>User Page</title>
+</head>
+
+<body>
+  welcome,
+  <div>{{current_user.name}}!</div>
+  <div>Account Information</div>
+  <div>Your ID: {{current_user.user_id}}</div>
+  <div>Payment Method: {{current_user.upay}}</div>
+  <div>Contact: {{current_user.ucontact}}</div>
+  <a href="/update_membership/{{current_user.user_id}}">Update Membership</a>
+  <div>Membership Level: {{current_membership.member_level}}</div>
+  <div>Membership Rewards: {{current_membership.rewards}}</div>
+  <div>Membership Pay Amount: {{current_membership.upay_amount}}</div>
+  <div>Membership Monitor Platform: {{current_membership.platform_name}}</div>
+  <div>Your registers: </div>
+  {% for r in current_registers %}
+  <div>Event Name:{{r.ename}}</div>
+  <div>Place: {{r.eplace}}</div>
+  <div>Time: {{r.etime}}</div>
+  <div>Date: {{r.edate}}</div>
+  <div>Participant ID: {{r.pid}}</div>
+  <div>Participant Name: {{r.pname}}</div>
+  <div>Seat Zone: {{r.seat_zone}}</div>
+  <div>Seat Number: {{r.seat_number}}</div>
+  {% endfor %}
+
+  <div>Available Events</div>
+  {% for n in events %}
+  <div>
+    <a href="/eventinfo/{{n.eid}}">go to {{n.name}} detailed information </a>
+    place: {{n.place}},time: {{n.time}},date: {{n.date}}, limitted attendance: {{n.limitted_attendance}}
+  </div>
+  {% endfor %}
+  <div><a href="/register/{{current_user.user_id}}">Register an event!</a></div>
+
+</body>
+
+</html>

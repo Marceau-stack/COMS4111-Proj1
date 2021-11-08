@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login</title>
+</head>
+
+<body>
+  {% for n in platform_objs %}
+  <div>you are loggin with {{n.pname}}</div>
+  <div>{{n.license}}</div>
+  {% endfor %}
+  <div>Enter your contact phone number to login</div>
+  <form method="POST" action="/user">
+    <input type="text" name="contact" autocomplete="off" autofocus required>
+    <input type="submit" value="LOGIN">
+  </form>
+  <br>
+
+
+  <div>Don't have an account?</div>
+  <br>
+  <a href="/signup">Sign up!</a>
+</body>
+
+</html>
